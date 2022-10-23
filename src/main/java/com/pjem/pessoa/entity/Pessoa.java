@@ -15,7 +15,6 @@ import java.time.LocalDate;
 @Entity
 @Getter
 @Setter
-
 @AllArgsConstructor
 @NoArgsConstructor
 public class Pessoa {
@@ -27,10 +26,10 @@ public class Pessoa {
     private String email;
     private LocalDate aniversario;
 
-    public Pessoa(String nome, String email, LocalDate aniversario) {
-
+ /*   public Pessoa(int id, String nome, String email, LocalDate aniversario) {
+        this.id = id;
         this.nome = nome;
         this.email = email;
         this.aniversario = aniversario;
-    }
+    }*/
 }

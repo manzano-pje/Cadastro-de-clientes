@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.pjem</groupId>
-	<artifactId>teste</artifactId>
+	<artifactId>Pessoa</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Teste CRUD</name>
+	<name>Avaliação técnica</name>
 	<description>Avaliação técnica para vaga Java / Jr - Simbiose</description>
 	<properties>
 		<java.version>17</java.version>

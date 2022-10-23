@@ -33,15 +33,13 @@ public class PessoaController {
     }
 
     @DeleteMapping("/pessoa/{id}")
-    public void apaga(@PathVariable Integer id){
-        pessoaService.apaga(id);
-    }
+    public void apaga(@PathVariable Integer id){ pessoaService.apaga(id);  }
 
 
- /*   @PutMapping("/pessoa/{id}")
-    public PessoaDTO altera(@PathVariable Integer id, @RequestBody PessoaDTO pessoaDTO){
-        return pessoaService.altera(id,pessoaDTO);
+    @PutMapping("/pessoa/{id}")
+    public Object altera(@PathVariable Integer id, @RequestBody PessoaDTO pessoaDTO){
+        return pessoaService.altera(id, pessoaDTO);
     }
-*/
+
 
 }
