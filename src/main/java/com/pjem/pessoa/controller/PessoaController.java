@@ -29,7 +29,7 @@ public class PessoaController {
     }
 
     @GetMapping("/pessoa/{id}")
-    public ResponseEntity<Optional<Pessoa>> listaUnico(@PathVariable Integer id){
+    public ResponseEntity<Object> listaUnico(@PathVariable Integer id){
 
         return pessoaService.listaUnico(id);
     }
