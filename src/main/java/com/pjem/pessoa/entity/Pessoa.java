@@ -5,10 +5,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDate;
 
 
@@ -17,6 +14,7 @@ import java.time.LocalDate;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+
 public class Pessoa {
 
     @Id
@@ -26,10 +24,4 @@ public class Pessoa {
     private String email;
     private LocalDate aniversario;
 
- /*   public Pessoa(int id, String nome, String email, LocalDate aniversario) {
-        this.id = id;
-        this.nome = nome;
-        this.email = email;
-        this.aniversario = aniversario;
-    }*/
 }

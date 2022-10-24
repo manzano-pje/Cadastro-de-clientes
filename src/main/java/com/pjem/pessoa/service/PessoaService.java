@@ -18,25 +18,32 @@ public class PessoaService {
 
     private PessoaRepository pessoaRepository;
 
-    public PessoaDTO cadastra(PessoaDTO pessoaDTO) {
+    public ResponseEntity<Object> cadastra(PessoaDTO pessoaDTO) {
         Pessoa pessoa = new Pessoa();
         BeanUtils.copyProperties(pessoaDTO, pessoa);
         pessoaRepository.save(pessoa);
-        return pessoaDTO;
+        return ResponseEntity.status(HttpStatus.CREATED).body("Cadastro efetuado com sucesso!");
     }
 
-    public Optional<Pessoa> listaUnico(Integer id) {
-        Optional<Pessoa> pessoaCadastro = pessoaRepository.findById(id);
-        return pessoaCadastro;
+    public ResponseEntity<Optional<Pessoa>> listaUnico(Integer id) {
+        Optional<Pessoa> pessoaOptional = pessoaRepository.findById(id);
+        return ResponseEntity.status(HttpStatus.OK).body(pessoaOptional);
     }
 
-    public List<Pessoa> lista() {
-        return pessoaRepository.findAll();
+    public ResponseEntity<List<Pessoa>> lista() {
+        List<Pessoa> pessoas = pessoaRepository.findAll();
+        return ResponseEntity.status(HttpStatus.OK).body(pessoas);
+
     }
 
-    public void apaga(Integer id) {
+    public ResponseEntity<String> apaga(Integer id) {
+        Optional<Pessoa> pessoaOptional = pessoaRepository.findById(id);
+
+        if (pessoaOptional.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Cadastro inexistente");
+        }
         pessoaRepository.deleteById(id);
-
+        return ResponseEntity.status(HttpStatus.OK).body("Cadastro apagado com sucesso!");
     }
 
     public Object altera(Integer id, PessoaDTO pessoaDTO) {
@@ -45,13 +52,25 @@ public class PessoaService {
         if (pessoaOptional.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Cadastro inexistente");
         }
+
+
+        System.out.println("\n***********");
+        System.out.println(pessoaOptional.get().getNome() + "!  -  " + pessoaDTO.getNome());
+        System.out.println(pessoaOptional.get().getEmail() + "!  -  " + pessoaDTO.getEmail());
+        System.out.println(pessoaOptional.get().getAniversario() + "!  -  " + pessoaDTO.getAniversario());
+        System.out.println("\n***********");
+
         if(pessoaOptional.get().getNome().equals(pessoaDTO.getNome())&&
                 pessoaOptional.get().getEmail().equals(pessoaDTO.getEmail())&&
                 pessoaOptional.get().getAniversario().equals(pessoaDTO.getAniversario())){
+
             return ResponseEntity.status(HttpStatus.CONFLICT).body("Cadastro já eixste!");
         }
-
-        BeanUtils.copyProperties(pessoaDTO,pessoaOptional.get());
+        
+        pessoaOptional.get().setId(id);
+        pessoaOptional.get().setNome(pessoaDTO.getNome());
+        pessoaOptional.get().setEmail(pessoaDTO.getEmail());
+        pessoaOptional.get().setAniversario(pessoaDTO.getAniversario());
 
         pessoaRepository.save(pessoaOptional.get());
         return ResponseEntity.status(HttpStatus.OK).body("Atualização efetuada com sucesso!");
