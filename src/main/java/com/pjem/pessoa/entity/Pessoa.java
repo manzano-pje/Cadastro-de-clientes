@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.Objects;
 
 
 @Entity
@@ -23,5 +24,6 @@ public class Pessoa {
     private String nome;
     private String email;
     private LocalDate aniversario;
+
 
 }
