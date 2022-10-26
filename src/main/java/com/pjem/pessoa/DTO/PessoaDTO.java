@@ -11,7 +11,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
+
 import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
@@ -30,7 +30,7 @@ public class PessoaDTO {
     private String email;
 
     @NotBlank(message="Aniversário não pode estar em branco")
-    @Temporal(TemporalType.DATE)
-    @JsonFormat(pattern = "dd/MM/yyyy", locale="pt-BR", timezone = "Brazil / East")
+    //@Temporal(TemporalType.DATE)
+    //@JsonFormat(pattern = "dd/MM/yyyy", locale="pt-BR", timezone = "Brazil / East")
     private LocalDate aniversario;
 }

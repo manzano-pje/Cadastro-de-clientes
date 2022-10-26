@@ -7,7 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.time.LocalDate;
-import java.util.Objects;
+
 
 
 @Entity
@@ -15,7 +15,7 @@ import java.util.Objects;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-
+@Table(name="pessoas")
 public class Pessoa {
 
     @Id

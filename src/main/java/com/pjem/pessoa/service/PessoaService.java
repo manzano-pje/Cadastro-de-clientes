@@ -78,7 +78,7 @@ public class PessoaService {
     public ResponseEntity<String> apaga(Integer id) {
         Optional<Pessoa> pessoaOptional = pessoaRepository.findById(id);
         if (pessoaOptional.isEmpty()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("\"Cadastro \" + id + \" inexistente!\"");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Cadastro " + id + " inexistente!");
         }
         pessoaRepository.deleteById(id);
         return ResponseEntity.status(HttpStatus.OK).body("Cadastro "+ id + " apagado com sucesso!");
