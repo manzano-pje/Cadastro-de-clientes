@@ -8,13 +8,13 @@
 - Listar pessoas
 - Deletar pessoas
 
-### *Tecnologias utilizadas
+### Tecnologias utilizadas
 - Java 17<br>
 - Spring Boot<br>
 - MySql<br>
 ##
 
-### Instalação Local*
+### Instalação Local
 
 *Para rodar o projeto em localhost é necessário:*
 - ter o Java 17 instalado.
