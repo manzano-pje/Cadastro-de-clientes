@@ -3,7 +3,7 @@
 ##
 
 ### *Features*
-- Cadastrar pessoa>
+- Cadastrar pessoa
 - Editar pessoa
 - Listar pessoas
 - Deletar pessoas
@@ -19,7 +19,4 @@
 *Para rodar o projeto em localhost é necessário:*
 - ter o Java 17 instalado.
 - alterar os dados do application.properties de acordo com sua base dados
-
-Para a documentação dos endpoints acesse:
-localhost:8080/swagger-ui.html
 
